@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom/client";
-const element = React.createElement("h1", {}, "hello abhinay");
-console.log(React, element);
+import Header from "./components/Header";
+const App = () => {
+  return (
+    <Fragment>
+      <Header />
+    </Fragment>
+  );
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(element);
-const element2 = React.createElement("h1", {}, "hello footer");
-console.log(React, element);
-const footer = ReactDOM.createRoot(document.getElementById("footer"));
-footer.render(element2);
+root.render(<App />);
