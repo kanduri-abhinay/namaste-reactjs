@@ -34,3 +34,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.search-container{
+  margin: 10px;
+}
