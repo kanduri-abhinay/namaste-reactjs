@@ -4,7 +4,7 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 const filterData = (searchText, data) => {
   return data.filter((item) =>
-    item.data.name.toLowerCase().includes(searchText.toLowerCase())
+    item?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
   );
 };
 const Body = () => {
@@ -47,13 +47,13 @@ const Body = () => {
       {restaurants.length == 0 ? (
         <h1> No restaurants found</h1>
       ) : (
-          <div className="cards-container">
-            {restaurants.map((restaurant) => {
-              return (
-                <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
-              );
-            })}
-          </div>
+        <div className="cards-container">
+          {restaurants.map((restaurant) => {
+            return (
+              <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+            );
+          })}
+        </div>
       )}
     </>
   ) : (
