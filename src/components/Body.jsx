@@ -8,7 +8,7 @@ const filterData = (searchText, data) => {
   );
 };
 const Body = () => {
-  const [restaurantList,setRestaurantList]=useState();
+  const [restaurantList, setRestaurantList] = useState();
   const [searchText, updateSearchText] = useState("");
   const [restaurants, updateRestaurants] = useState([]);
   useEffect(() => {
@@ -23,8 +23,7 @@ const Body = () => {
     setRestaurantList(data?.data?.cards[2]?.data?.data?.cards);
     updateRestaurants(data?.data?.cards[2]?.data?.data?.cards);
   }
-  return (
-    restaurantList?
+  return restaurantList ? (
     <>
       <div className="search-container">
         <input
@@ -45,14 +44,20 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="cards-container">
-        {restaurants.map((restaurant) => {
-          return (
-            <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
-          );
-        })}
-      </div>
-    </>:<Shimmer/>
+      {restaurants.length == 0 ? (
+        <h1> No restaurants found</h1>
+      ) : (
+          <div className="cards-container">
+            {restaurants.map((restaurant) => {
+              return (
+                <RestaurantCard key={restaurant.data.id} {...restaurant.data} />
+              );
+            })}
+          </div>
+      )}
+    </>
+  ) : (
+    <Shimmer />
   );
 };
 export default Body;
