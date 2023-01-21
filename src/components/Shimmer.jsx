@@ -5,7 +5,7 @@ export default function Shimmer() {
       <div
       key={i}
         className="card"
-        style={{ height: "200px", width: "200px", background: "#d1e0e0" }}
+        style={{ height: "200px", width: "200px", background: "lightgray" }}
       ></div>
     );
   }
