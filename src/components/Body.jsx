@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 // import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import useOnline from "./useOnline";
 const filterData = (searchText, data) => {
   return data.filter((item) =>
     item?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
@@ -22,6 +23,11 @@ const Body = () => {
     // console.log(data?.data?.cards[2]?.data?.data?.cards);
     setRestaurantList(data?.data?.cards[2]?.data?.data?.cards);
     updateRestaurants(data?.data?.cards[2]?.data?.data?.cards);
+  }
+  const isOnline=useOnline();
+  if(!isOnline)
+  {
+    return <h1>Please check your internet connection</h1>
   }
   return restaurantList ? (
     <>
