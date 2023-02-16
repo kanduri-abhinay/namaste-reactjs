@@ -24,10 +24,9 @@ const Body = () => {
     setRestaurantList(data?.data?.cards[2]?.data?.data?.cards);
     updateRestaurants(data?.data?.cards[2]?.data?.data?.cards);
   }
-  const isOnline=useOnline();
-  if(!isOnline)
-  {
-    return <h1>Please check your internet connection</h1>
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h1>Please check your internet connection</h1>;
   }
   return restaurantList ? (
     <>
